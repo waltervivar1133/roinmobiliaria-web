@@ -1,0 +1,13 @@
+schema: ${GRAPHQL_ENDPOINT}
+documents: "services/**/*.{ts,tsx}"
+generates:
+  services/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-graphql-request
+    config:
+      rawRequest: true
+      scalars:
+        DateTime: string
+        Date: string

@@ -6,15 +6,26 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "codegen": "graphql-codegen --config codegen.yml",
+    "codegen:watch": "graphql-codegen --config codegen.yml --watch"
   },
   "dependencies": {
+    "graphql": "^16.12.0",
+    "graphql-request": "^7.4.0",
+    "leaflet": "^1.9.4",
     "next": "16.1.2",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^6.1.1",
+    "@graphql-codegen/typescript": "^5.0.7",
+    "@graphql-codegen/typescript-graphql-request": "^6.4.0",
+    "@graphql-codegen/typescript-operations": "^5.0.7",
     "@tailwindcss/postcss": "^4",
+    "@types/leaflet": "^1.9.21",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
