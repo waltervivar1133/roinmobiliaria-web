@@ -37,15 +37,24 @@ export default function BlogHorizontalCard({ post }: BlogHorizontalCardProps) {
         </div>
       )}
 
-      <div className="flex flex-col flex-1 p-4 md:p-4 md:justify-center">
+      <div className="flex flex-col flex-1 p-4 md:p-4 md:justify-center min-w-0">
         <div className="text-gray-500 text-xs mb-2 md:mb-1">
           {formatDate(post.date)} • {category}
         </div>
-        <h3 className="text-base md:text-sm font-bold line-clamp-2 group-hover:opacity-80 transition-opacity text-primary-blue">
+        <h3 className="text-base md:text-sm font-bold line-clamp-2 group-hover:opacity-80 transition-opacity text-primary-blue mb-1">
           {post.title}
         </h3>
         {post.excerpt && (
-          <p className="text-gray-600 text-xs md:text-xs line-clamp-2 mt-2 md:mt-1 flex-1 overflow-hidden">
+          <p 
+            className="text-gray-600 text-xs mt-1 overflow-hidden"
+            style={{
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              lineHeight: '1.4',
+              maxHeight: '2.8em',
+            }}
+          >
             {post.excerpt.replace(/<[^>]*>/g, "")}
           </p>
         )}
