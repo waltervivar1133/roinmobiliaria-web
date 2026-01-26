@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
           {/* Logo */}
-          <Image src="/images/logos/logo-oficial.png" alt="Logo" width={180} height={100} />
+          <Image src="/images/logos/logo-white.png" alt="Logo" width={180} height={100} />
 
           {/* Navigation Links */}
           <div className="flex flex-wrap items-center gap-6">
