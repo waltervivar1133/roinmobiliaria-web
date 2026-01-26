@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
 import { getPropertyBySlug, getRelatedProperties } from "@/services/properties/properties.service";
 import PropertyImageSlider from "@/components/PropertyImageSlider";
-import PropertyDescription from "@/components/PropertyDescription";
-import PropertyDetails from "@/components/PropertyDetails";
-import PropertyMap from "@/components/PropertyMap";
+import PropertyInfo from "@/components/PropertyInfo";
+import PropertyMapWrapper from "@/components/PropertyMapWrapper";
 import RelatedProperties from "@/components/RelatedProperties";
 import type { Property } from "@/types/property";
 
@@ -25,7 +24,6 @@ export default async function PropertyDetailPage({ params }: PageProps) {
       notFound();
     }
 
-    // Get related properties
     const relatedData = await getRelatedProperties(property, 3);
     relatedProperties = relatedData.products.nodes;
   } catch (error) {
@@ -33,10 +31,8 @@ export default async function PropertyDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  // Prepare images for slider
   const images = property.galleryImages?.nodes || [];
   if (property.image) {
-    // Add main image at the beginning if not in gallery
     const hasMainImage = images.some(
       (img) => img.sourceUrl === property.image?.sourceUrl
     );
@@ -48,64 +44,23 @@ export default async function PropertyDetailPage({ params }: PageProps) {
     }
   }
 
-  // Get property type (tag)
-  const propertyType = property.productCategories?.nodes[0]?.name || "Property";
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Header with title and tag */}
-      <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-6">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div className="flex-1">
-              <h1
-                className="text-2xl md:text-3xl font-bold mb-2"
-                style={{ color: "#1C3E7C" }}
-              >
-                {property.name}
-              </h1>
-              <p className="text-gray-600">
-                {property.productos?.direccion || "Location not specified"}
-              </p>
-            </div>
-            <div
-              className="px-6 py-2 rounded text-white font-semibold"
-              style={{ backgroundColor: "#1C3E7C" }}
-            >
-              {propertyType}
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Main container with max-w-7xl */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8 pb-32 lg:pb-8">
+        {/* Image slider */}
+        {images.length > 0 && (
+          <PropertyImageSlider images={images} propertyName={property.name} />
+        )}
 
-      {/* Image slider */}
-      {images.length > 0 && (
-        <PropertyImageSlider images={images} propertyName={property.name} />
-      )}
-
-      {/* Main content */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
-        <div className="space-y-8">
-          {/* Description */}
-          {property.description && (
-            <PropertyDescription
-              description={property.description}
-              shortDescription={property.shortDescription}
-            />
-          )}
-
-          {/* Details and Characteristics */}
-          <PropertyDetails
-            details={property.productos?.detalles}
-            characteristics={property.productos?.caracteristicas}
-          />
-        </div>
+        {/* Property info section */}
+        <PropertyInfo property={property} />
 
         {/* Location map */}
         {property.productos?.ubicacion?.latitude &&
           property.productos?.ubicacion?.longitude && (
             <div className="mt-12">
-              <PropertyMap
+              <PropertyMapWrapper
                 location={property.productos.ubicacion}
                 address={property.productos.direccion}
               />

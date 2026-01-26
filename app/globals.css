@@ -14,7 +14,13 @@
   --font-sans: var(--font-poppins);
   --color-primary-blue: #1C3E7C;
   --color-primary-green: #018038;
+  --color-whatsapp-green: #25D366;
   --color-badge-bg: #E3F2FD;
+}
+
+/* WhatsApp green utility class */
+.bg-whatsapp-green {
+  background-color: #25D366;
 }
 
 body {

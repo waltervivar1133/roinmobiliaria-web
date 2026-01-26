@@ -94,7 +94,7 @@ export default function Header() {
           {/* Contact Button - Desktop */}
           <div className="hidden md:block">
             <Link
-              href="/contacto"
+              href="/contact"
               className="text-sm px-6 py-2 border-2 font-semibold hover:bg-primary-blue hover:text-white rounded-full hover:bg-opacity-10 transition-colors border-primary-blue text-primary-blue"
             >
               CONTÁCTAME
@@ -129,11 +129,11 @@ export default function Header() {
           <>
             {/* Overlay */}
             <div
-              className="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden animate-fade-in"
+              className="fixed inset-0 bg-black bg-opacity-50 z-60 md:hidden animate-fade-in"
               onClick={() => setIsMenuOpen(false)}
             />
             {/* Menu Panel */}
-            <div className="fixed inset-y-0 right-0 w-full bg-white shadow-2xl z-50 md:hidden animate-slide-in-right">
+            <div className="fixed inset-y-0 right-0 w-full bg-white shadow-2xl z-70 md:hidden animate-slide-in-right">
               <div className="flex flex-col h-full">
                 {/* Header del menú */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -193,7 +193,7 @@ export default function Header() {
                 {/* Footer del menú con botón de contacto */}
                 <div className="p-4 border-t border-gray-200">
                   <Link
-                    href="/contacto"
+                    href="/contact"
                     className="w-full block px-6 py-3 border-2 font-semibold text-center rounded-lg border-primary-blue text-primary-blue hover:bg-primary-blue hover:text-white transition-colors"
                     onClick={() => setIsMenuOpen(false)}
                   >

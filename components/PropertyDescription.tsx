@@ -1,4 +1,4 @@
-import type { PropertyDetails } from "@/types/property";
+"use client";
 
 interface PropertyDescriptionProps {
   description?: string;
@@ -15,17 +15,13 @@ export default function PropertyDescription({
 
   return (
     <section>
-      <h2 className="text-3xl font-bold mb-4 text-primary-blue">
+      <h2 className="text-lg font-medium mb-4 text-primary-blue">
         Descripción
       </h2>
-      {shortDescription && (
-        <p className="text-xl text-gray-700 mb-6 font-semibold">
-          {shortDescription}
-        </p>
-      )}
+
       {description && (
         <div
-          className="prose prose-lg max-w-none text-gray-600"
+          className="prose prose-lg max-w-none text-gray-600 prose-headings:text-gray-900 prose-strong:text-gray-900 prose-p:text-gray-600 prose-a:text-primary-blue prose-a:no-underline hover:prose-a:underline"
           dangerouslySetInnerHTML={{ __html: description }}
         />
       )}

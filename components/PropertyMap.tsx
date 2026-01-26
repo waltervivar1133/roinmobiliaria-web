@@ -35,26 +35,26 @@ export default function PropertyMap({ location, address }: PropertyMapProps) {
 
   return (
     <section>
-      <h2 className="text-3xl font-bold mb-6 text-primary-blue">
+      <h2 className="text-lg font-medium mb-6 text-primary-blue">
         Ubicación
       </h2>
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600">
-          <span className="font-mono text-sm">{coordinates}</span>
+          {/* <span className="font-mono text-sm text-primary-blue">{coordinates}</span> */}
           <div className="flex gap-4">
             <a
               href={googleMapsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-primary-blue hover:underline"
             >
-              Ampliar el mapa
+              Ir a google maps
             </a>
             <a
               href={directionsUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 hover:underline"
+              className="text-primary-blue hover:underline"
             >
               Cómo llegar
             </a>

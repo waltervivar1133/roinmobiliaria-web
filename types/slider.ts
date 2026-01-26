@@ -8,7 +8,7 @@ export interface Slide {
   link: string;
   background_type: string;
   background_color: string;
-  layers: any[];
+  layers: unknown[];
   published: number;
   order: number;
 }

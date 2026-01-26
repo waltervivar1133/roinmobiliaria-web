@@ -99,8 +99,8 @@ export async function getRelatedProperties(
         GET_RELATED_PROPERTIES,
         {
           first,
-          categoryIds,
-          excludeId: property.id,
+          categoryIds: categoryIds.map(id => id.toString()),
+          excludeId: property.databaseId,
         }
       );
 
