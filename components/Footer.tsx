@@ -18,7 +18,7 @@ export default function Footer() {
               Inicio
             </Link>
             <Link
-              href="/sobre-mi"
+              href="/about"
               className="hover:opacity-80 transition-opacity"
             >
               Sobre mí

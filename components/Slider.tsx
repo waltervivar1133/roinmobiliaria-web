@@ -61,7 +61,7 @@ export default function Slider({
   }
 
   return (
-    <section className="relative w-full min-h-[400px] md:min-h-[600px] flex items-center bg-gray-100">
+    <section className="relative max-w-7xl mx-auto min-h-[400px] md:min-h-[600px] flex items-center bg-gray-100 rounded-lg overflow-hidden">
       {/* Texto a la izquierda */}
       {(title || description) && (
         <div className="absolute left-0 top-0 w-full h-full z-10 flex items-center">

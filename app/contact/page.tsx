@@ -18,10 +18,10 @@ export default async function ContactPage() {
       <div className="bg-gradient-primary text-white py-12 md:py-16 lg:py-20">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 md:mb-4">
+            <h1 className="text-md md:text-xl lg:text-2xl font-bold mb-3 md:mb-4">
               Contáctame
             </h1>
-            <p className="text-base md:text-lg lg:text-xl opacity-90 px-2">
+            <p className="text-sm md:text-base lg:text-base opacity-90 px-2">
               Estoy aquí para ayudarte a encontrar la propiedad perfecta. 
               No dudes en escribirme, responderé lo antes posible.
             </p>

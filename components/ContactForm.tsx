@@ -34,19 +34,19 @@ export default function ContactForm({ properties }: ContactFormProps) {
     let message = `Hola, soy ${formData.name || "un cliente interesado"}`;
 
     if (formData.email) {
-      message += `\n📧 Email: ${formData.email}`;
+      message += `\n*Email:* ${formData.email}`;
     }
 
     if (formData.phone) {
-      message += `\n📱 Teléfono: ${formData.phone}`;
+      message += `\n*Teléfono:* ${formData.phone}`;
     }
 
     if (formData.propertyInterest) {
-      message += `\n\n🏠 Propiedad de interés:\n${formData.propertyInterest}`;
+      message += `\n\n*Propiedad de interés:*\n${formData.propertyInterest}`;
     }
 
     if (formData.message) {
-      message += `\n\n💬 Mensaje:\n${formData.message}`;
+      message += `\n\n*Mensaje:*\n${formData.message}`;
     }
 
     if (!formData.propertyInterest && !formData.message) {

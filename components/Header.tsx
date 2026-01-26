@@ -72,7 +72,7 @@ export default function Header() {
               INICIO
             </Link>
             <Link
-              href="/sobre-mi"
+              href="/about"
               className="font-semibold hover:opacity-80 transition-opacity text-primary-blue"
             >
               SOBRE MÍ
@@ -167,7 +167,7 @@ export default function Header() {
                       INICIO
                     </Link>
                     <Link
-                      href="/sobre-mi"
+                      href="/about"
                       className="font-semibold py-4 px-4 rounded-lg text-primary-blue hover:bg-gray-50 transition-colors text-lg"
                       onClick={() => setIsMenuOpen(false)}
                     >

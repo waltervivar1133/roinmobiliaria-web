@@ -86,7 +86,7 @@ export default function BlogContent({
             {popularPosts.length > 0 && (
               <section className="mb-16">
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold text-primary-blue">Artículos Populares</h2>
+                  <h2 className="text-md md:text-xl lg:text-xl xl:text-xl font-bold text-primary-blue">Artículos Populares</h2>
                 
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -101,7 +101,7 @@ export default function BlogContent({
             {initialPosts.length > 1 && (
               <section>
                 <div className="flex items-center justify-between mb-8">
-                  <h2 className="text-2xl font-bold text-primary-blue">Artículos Recientes</h2>
+                  <h2 className="text-md md:text-xl lg:text-xl xl:text-xl font-bold text-primary-blue">Artículos Recientes</h2>
                
                 </div>
                 {initialPosts.length > 15 ? (

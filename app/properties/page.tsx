@@ -21,15 +21,15 @@ export default async function PropertiesPage() {
     <div className=" bg-white">
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-primary-blue">
+          <h1 className="text-md md:text-xl lg:text-2xl font-bold mb-4 text-primary-blue">
             Todas las Propiedades
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl">
+          <p className="text-sm md:text-base lg:text-base text-gray-600 max-w-2xl">
             Descubre nuestra selección completa de propiedades disponibles.
             Encuentra el lugar perfecto para ti.
           </p>
           {properties.length > 0 && (
-            <p className="text-sm text-gray-500 mt-2">
+            <p className="text-sm md:text-sm lg:text-sm text-gray-500 mt-2">
               {properties.length} {properties.length === 1 ? "propiedad disponible" : "propiedades disponibles"}
             </p>
           )}

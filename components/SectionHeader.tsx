@@ -20,7 +20,7 @@ export default function SectionHeader({
   viewMoreText = "Ver más",
 }: SectionHeaderProps) {
   return (
-    <div className="mb-12">
+    <div className="">
       {badge && (
         <div
           className="inline-block mb-4 px-6 py-2 rounded-full text-sm font-semibold transition-colors text-primary-blue"

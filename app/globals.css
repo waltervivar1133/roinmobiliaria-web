@@ -85,6 +85,21 @@ body {
   color: #374151;
 }
 
+/* Prevenir clics en imágenes dentro de enlaces en el blog */
+.prose a > img,
+.prose a > figure,
+.prose a > figure > img,
+.prose figure a > img {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
+/* Prevenir clics en cualquier imagen dentro de figure que esté en un enlace */
+.prose a figure img {
+  pointer-events: none !important;
+  cursor: default !important;
+}
+
 .prose h1,
 .prose h2,
 .prose h3,
@@ -144,4 +159,9 @@ body {
   padding-left: 1em;
   margin: 1.5em 0;
   font-style: italic;
+}
+
+
+.uagb-heading-text{
+  color: var(--primary-blue);
 }
