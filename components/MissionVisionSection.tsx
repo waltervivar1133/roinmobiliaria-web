@@ -32,14 +32,14 @@ export default function MissionVisionSection() {
             </p>
           </div>
 
-          {/* Imagen central - Rossana */}
-          <div className="order-1 md:order-2 flex justify-center">
+          {/* Imagen central - Rossana (pegada al borde inferior) */}
+          <div className="order-1 md:order-2 flex justify-center self-end">
             <div className="relative w-full max-w-xs md:max-w-sm aspect-3/4 md:h-[420px]">
               <Image
                 src="/images/home/rossana-foto-1.png"
                 alt="Rossana Osores - Agente Inmobiliaria"
                 fill
-                className="object-contain object-center"
+                className="object-contain object-bottom"
                 sizes="(max-width: 768px) 280px, 380px"
               />
             </div>
