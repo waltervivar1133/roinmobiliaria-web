@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { LayoutNavProvider } from "@/components/LayoutNavContext";
 
 const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
@@ -27,9 +26,7 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} font-sans antialiased`}
       >
-        <Header />
-        <main className="min-h-screen pt-[100.34px]">{children}</main>
-        <Footer />
+        <LayoutNavProvider>{children}</LayoutNavProvider>
         <SpeedInsights />
       </body>
     </html>
