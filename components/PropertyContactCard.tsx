@@ -62,7 +62,7 @@ export default function PropertyContactCard({
               Contactar por WhatsApp
             </a>
 
-          
+
           </div>
 
           {/* Agent info */}
@@ -87,7 +87,7 @@ export default function PropertyContactCard({
             </div>
           </div>
 
-        
+
         </div>
       </div>
 
@@ -116,9 +116,6 @@ export default function PropertyContactCard({
               </svg>
               WhatsApp
             </a>
-            <button className="flex-1 py-2.5 px-4 rounded-lg border-2 font-semibold text-sm transition-all hover:bg-gray-50 border-primary-blue text-primary-blue">
-              Agendar visita
-            </button>
           </div>
         </div>
       </div>
