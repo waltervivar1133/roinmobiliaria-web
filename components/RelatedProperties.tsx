@@ -15,7 +15,7 @@ export default function RelatedProperties({
   return (
     <PropertiesSection
       properties={properties}
-      title="Inmuebles Relacionados"
+      title="Propiedades Relacionadas"
       description="Descubre otras propiedades que podrían interesarte"
       showViewMore={false}
     />
