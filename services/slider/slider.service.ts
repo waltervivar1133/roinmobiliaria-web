@@ -7,7 +7,7 @@ export async function getSlider(): Promise<SliderResponse> {
   const url = `${ENV.SLIDERS_ENDPOINT}/${ENV.VERSION}/slider/${ENV.SLIDER}/slides`;
 
   const response = await fetch(url, {
-    next: { revalidate: 3600 },
+    next: { revalidate: 15 },
   });
 
   if (!response.ok) {
@@ -17,10 +17,10 @@ export async function getSlider(): Promise<SliderResponse> {
   return response.json();
 }
 
-
 export async function getPublishedSlides() {
   const data = await getSlider();
-  return data.slides
+  const slides = (data.slides ?? [])
     .filter((slide) => slide.published === 1)
     .sort((a, b) => a.order - b.order);
+  return slides;
 }

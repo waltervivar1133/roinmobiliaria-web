@@ -88,11 +88,10 @@ export async function getRelatedProperties(
   property: Property,
   first: number = 3
 ): Promise<PropertiesResponse> {
-  // Obtener IDs de categorías de la propiedad actual
+
   const categoryIds =
     property.productCategories?.nodes.map((cat) => cat.id) || [];
 
-  // Si hay categorías, buscar propiedades relacionadas
   if (categoryIds.length > 0) {
     try {
       const result = await graphqlClient.request<PropertiesResponse>(
@@ -104,7 +103,7 @@ export async function getRelatedProperties(
         }
       );
 
-      // Si encontramos propiedades relacionadas, las devolvemos
+
       if (result.products.nodes.length > 0) {
         return result;
       }
@@ -116,9 +115,9 @@ export async function getRelatedProperties(
   // Si no hay categorías o no se encontraron propiedades relacionadas,
   // devolver las últimas propiedades generales (excluyendo la actual)
   return graphqlClient.request<PropertiesResponse>(GET_ALL_PROPERTIES, {
-    first: first + 1, // Pedimos una más para excluir la actual
+    first: first + 1, 
   }).then((result) => {
-    // Filtrar la propiedad actual
+
     const filteredNodes = result.products.nodes.filter(
       (p) => p.id !== property.id
     );
