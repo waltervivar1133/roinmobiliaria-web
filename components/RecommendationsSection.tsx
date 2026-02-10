@@ -21,7 +21,6 @@ export default function RecommendationsSection({
       properties={properties}
       title={title}
       description={description}
-      badge="DESCUBRIR"
       showViewMore={showViewMore}
       viewMoreLink={viewMoreLink}
       columns={3}

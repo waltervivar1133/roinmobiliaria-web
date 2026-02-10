@@ -96,7 +96,7 @@ export default function PropertiesSection({
           viewMoreText={viewMoreText}
         />
 
-        <div className={`grid ${gridCols[columns]} gap-8`}>
+        <div className={`grid ${gridCols[columns]} gap-8 mt-4`}>
           {properties.map((property) => {
             const category = property.productCategories?.nodes[0]?.name;
             return (

@@ -48,7 +48,7 @@ export default function BlogLoadMore({ posts, initialCount = 15 }: BlogLoadMoreP
           <button
             onClick={handleLoadMore}
             disabled={isLoading}
-            className="px-8 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+            className="px-8 py-3 bg-primary-blue text-white font-semibold rounded-lg hover:bg-primary-blue/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 text-sm"
           >
             {isLoading ? (
               <>
@@ -77,7 +77,7 @@ export default function BlogLoadMore({ posts, initialCount = 15 }: BlogLoadMoreP
             ) : (
               <>
                 Cargar más artículos
-                <span className="text-sm opacity-75">
+                <span className="text-sm ">
                   ({posts.length - displayedCount} restantes)
                 </span>
               </>
