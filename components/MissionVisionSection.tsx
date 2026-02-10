@@ -8,7 +8,7 @@ const VISION_TEXT =
 
 export default function MissionVisionSection() {
   return (
-    <section className="relative w-full min-h-[200px] md:min-h-[200px] overflow-hidden">
+    <section className="relative w-full min-h-[130px] md:min-h-[150px] overflow-hidden">
       {/* Fondo a todo ancho */}
       <div className="absolute bottom-0 inset-0">
         <Image
@@ -20,11 +20,11 @@ export default function MissionVisionSection() {
         />
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-10">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-20">
         <div className="grid grid-cols-1 md:grid-cols-3  items-center">
           {/* Misión */}
           <div className="order-2 md:order-1 text-center md:text-left">
-            <h2 className="text-lg md:text-xl font-bold text-primary-blue mb-4">
+            <h2 className="text-lg md:text-2xl font-bold text-primary-blue mt-5 md:mt-0 mb-10">
               MISIÓN
             </h2>
             <p className="text-sm md:text-base lg:text-md text-gray-700 leading-relaxed">
@@ -34,7 +34,7 @@ export default function MissionVisionSection() {
 
           {/* Imagen central - Rossana (pegada al borde inferior) */}
           <div className="order-1 md:order-2 flex justify-center self-end">
-            <div className="relative w-full max-w-xs md:max-w-sm aspect-3/4 md:h-[420px]">
+            <div className="relative w-full max-w-xs md:max-w-sm aspect-3/4 md:h-[320px]">
               <Image
                 src="/images/home/rossana-foto-1.png"
                 alt="Rossana Osores - Agente Inmobiliaria"
@@ -46,8 +46,8 @@ export default function MissionVisionSection() {
           </div>
 
           {/* Visión */}
-          <div className="order-3 text-center md:text-right">
-            <h2 className="text-lg md:text-xl font-bold text-primary-blue mb-4">
+          <div className="order-3 text-center md:text-right mt-5 md:mt-0">
+            <h2 className="text-lg md:text-2xl font-bold text-primary-blue mb-10">
               VISIÓN
             </h2>
             <p className="text-sm md:text-base lg:text-md text-gray-700 leading-relaxed mb-5 md:mb-0">
