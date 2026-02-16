@@ -1,133 +1,49 @@
 "use client";
 
-import { useState } from "react";
 import PropertySelect from "@/components/PropertySelect";
-import type { Property } from "@/types/property";
-
-interface ContactFormProps {
-  properties: Property[];
-}
+import FormField from "@/components/FormField";
+import { useContactForm } from "@/hooks/useContactForm";
+import type { ContactFormProps } from "@/types/contact";
 
 export default function ContactForm({ properties }: ContactFormProps) {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
-    propertyInterest: "",
-  });
-
-  const whatsappNumber = "+51997896954";
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handlePropertyChange = (propertyName: string) => {
-    setFormData((prev) => ({ ...prev, propertyInterest: propertyName }));
-  };
-
-  const buildWhatsAppMessage = (): string => {
-    let message = `Hola, soy ${formData.name || "un cliente interesado"}`;
-
-    if (formData.email) {
-      message += `\n*Email:* ${formData.email}`;
-    }
-
-    if (formData.phone) {
-      message += `\n*Teléfono:* ${formData.phone}`;
-    }
-
-    if (formData.propertyInterest) {
-      message += `\n\n*Propiedad de interés:*\n${formData.propertyInterest}`;
-    }
-
-    if (formData.message) {
-      message += `\n\n*Mensaje:*\n${formData.message}`;
-    }
-
-    if (!formData.propertyInterest && !formData.message) {
-      message += "\n\nMe gustaría recibir más información sobre propiedades disponibles.";
-    }
-
-    return message;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Validar campos requeridos
-    if (!formData.name || !formData.message) {
-      return;
-    }
-
-    const whatsappMessage = buildWhatsAppMessage();
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-    
-    // Abrir WhatsApp
-    window.open(whatsappUrl, "_blank");
-  };
+  const { formData, errors, updateField, updatePropertyInterest, handleSubmit } = useContactForm();
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-      <div>
-        <label
-          htmlFor="name"
-          className="block text-sm md:text-base font-semibold text-gray-700 mb-2"
-        >
-          Nombre completo *
-        </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          value={formData.name}
-          onChange={handleInputChange}
-          className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all outline-none"
-          placeholder="Tu nombre"
-        />
-      </div>
+      <FormField
+        label="Nombre completo"
+        id="name"
+        name="name"
+        type="text"
+        required
+        value={formData.name}
+        onChange={(e) => updateField("name", e.target.value)}
+        placeholder="Tu nombre"
+        error={errors.name}
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-        <div>
-          <label
-            htmlFor="email"
-            className="block text-sm md:text-base font-semibold text-gray-700 mb-2"
-          >
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-            className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all outline-none"
-            placeholder="tu@email.com"
-          />
-        </div>
+        <FormField
+          label="Email"
+          id="email"
+          name="email"
+          type="email"
+          value={formData.email}
+          onChange={(e) => updateField("email", e.target.value)}
+          placeholder="tu@email.com"
+          error={errors.email}
+        />
 
-        <div>
-          <label
-            htmlFor="phone"
-            className="block text-sm md:text-base font-semibold text-gray-700 mb-2"
-          >
-            Teléfono
-          </label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-            className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all outline-none"
-            placeholder="+51 999 999 999"
-          />
-        </div>
+        <FormField
+          label="Teléfono"
+          id="phone"
+          name="phone"
+          type="tel"
+          value={formData.phone}
+          onChange={(e) => updateField("phone", e.target.value)}
+          placeholder="+51 999 999 999"
+          error={errors.phone}
+        />
       </div>
 
       <div>
@@ -140,29 +56,24 @@ export default function ContactForm({ properties }: ContactFormProps) {
         <PropertySelect
           properties={properties}
           value={formData.propertyInterest}
-          onChange={handlePropertyChange}
+          onChange={updatePropertyInterest}
           placeholder="Selecciona una propiedad (opcional)"
         />
       </div>
 
-      <div>
-        <label
-          htmlFor="message"
-          className="block text-sm md:text-base font-semibold text-gray-700 mb-2"
-        >
-          Mensaje *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          value={formData.message}
-          onChange={handleInputChange}
-          className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue transition-all resize-none outline-none"
-          placeholder="Cuéntame qué estás buscando..."
-        />
-      </div>
+      <FormField
+        label="Mensaje"
+        id="message"
+        name="message"
+        type="textarea"
+        required
+        rows={5}
+        value={formData.message}
+        onChange={(e) => updateField("message", e.target.value)}
+        placeholder="Cuéntame qué estás buscando..."
+        error={errors.message}
+        className="resize-none"
+      />
 
       <button
         type="submit"
