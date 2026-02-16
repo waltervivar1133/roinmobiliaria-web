@@ -4,7 +4,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --primary-blue: #1C3E7C;
+  --primary-blue: #1c3e7c;
   --primary-green: #018038;
 }
 
@@ -12,15 +12,15 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-poppins);
-  --color-primary-blue: #1C3E7C;
+  --color-primary-blue: #1c3e7c;
   --color-primary-green: #018038;
-  --color-whatsapp-green: #25D366;
-  --color-badge-bg: #E3F2FD;
+  --color-whatsapp-green: #25d366;
+  --color-badge-bg: #e3f2fd;
 }
 
 /* WhatsApp green utility class */
 .bg-whatsapp-green {
-  background-color: #25D366;
+  background-color: #25d366;
 }
 
 body {
@@ -38,7 +38,7 @@ body {
 }
 
 .bg-gradient-primary {
-  background: linear-gradient(90deg, #1C3E7C 0%, #018038 100%);
+  background: linear-gradient(90deg, #1c3e7c 0%, #018038 100%);
 }
 
 @keyframes fadeIn {
@@ -155,13 +155,12 @@ body {
 }
 
 .prose blockquote {
-  border-left: 4px solid #1C3E7C;
+  border-left: 4px solid #1c3e7c;
   padding-left: 1em;
   margin: 1.5em 0;
   font-style: italic;
 }
 
-
-.uagb-heading-text{
+.uagb-heading-text {
   color: var(--primary-blue);
 }

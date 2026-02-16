@@ -61,8 +61,8 @@ export default function PropertyInfo({ property }: PropertyInfoProps) {
 
       {/* Right side - Price and contact */}
       <div className="lg:col-span-1">
-        <PropertyContactCard 
-          details={property.productos?.detalles} 
+        <PropertyContactCard
+          details={property.productos?.detalles}
           propertyName={property.name}
         />
       </div>

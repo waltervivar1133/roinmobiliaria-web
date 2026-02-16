@@ -22,9 +22,7 @@ export default function PropertyImageSlider({
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(
-      (prev) => (prev - 1 + images.length) % images.length
-    );
+    setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   const goToNext = () => {

@@ -9,7 +9,10 @@ interface BlogLoadMoreProps {
   initialCount?: number;
 }
 
-export default function BlogLoadMore({ posts, initialCount = 15 }: BlogLoadMoreProps) {
+export default function BlogLoadMore({
+  posts,
+  initialCount = 15,
+}: BlogLoadMoreProps) {
   const [displayedCount, setDisplayedCount] = useState(initialCount);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,9 +31,7 @@ export default function BlogLoadMore({ posts, initialCount = 15 }: BlogLoadMoreP
   if (posts.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-gray-600 text-lg">
-          No se encontraron artículos.
-        </p>
+        <p className="text-gray-600 text-lg">No se encontraron artículos.</p>
       </div>
     );
   }

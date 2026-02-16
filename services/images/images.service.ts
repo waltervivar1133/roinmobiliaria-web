@@ -56,9 +56,7 @@ export const getAllMediaItems = getMediaItems;
 /**
  * Obtiene un item de media por su ID
  */
-export async function getMediaItemById(
-  id: number
-): Promise<MediaItemResponse> {
+export async function getMediaItemById(id: number): Promise<MediaItemResponse> {
   return graphqlClient.request<MediaItemResponse>(GET_MEDIA_ITEM_BY_ID, {
     id: id.toString(),
   });
@@ -75,9 +73,12 @@ export async function getMediaItemBySlug(
   });
 }
 
-
 export async function getImagesByMimeType(
-  mimeType: "IMAGE_JPEG" | "IMAGE_PNG" | "IMAGE_GIF" | "IMAGE_WEBP" = "IMAGE_JPEG",
+  mimeType:
+    | "IMAGE_JPEG"
+    | "IMAGE_PNG"
+    | "IMAGE_GIF"
+    | "IMAGE_WEBP" = "IMAGE_JPEG",
   first: number = 20
 ): Promise<{ mediaItems: { nodes: MediaItem[] } }> {
   return graphqlClient.request<{ mediaItems: { nodes: MediaItem[] } }>(

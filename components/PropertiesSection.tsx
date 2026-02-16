@@ -84,7 +84,9 @@ export default function PropertiesSection({
   };
 
   return (
-    <section className={`${paddingYClasses[paddingY]} ${paddingXClasses[paddingX]} ${backgroundColorClasses[backgroundColor]}`}>
+    <section
+      className={`${paddingYClasses[paddingY]} ${paddingXClasses[paddingX]} ${backgroundColorClasses[backgroundColor]}`}
+    >
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           badge={badge}
@@ -108,7 +110,10 @@ export default function PropertiesSection({
                 imageUrl={property.image?.sourceUrl || ""}
                 imageAlt={property.image?.altText || property.name}
                 location={getLocation(property)}
-                dolares={property.productos?.detalles?.dolares || property.productos?.dolares}
+                dolares={
+                  property.productos?.detalles?.dolares ||
+                  property.productos?.dolares
+                }
                 soles={property.productos?.detalles?.soles}
                 areaTotal={getAreaTotal(property)}
                 category={category}

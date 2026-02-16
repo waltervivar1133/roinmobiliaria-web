@@ -34,7 +34,7 @@ export default function PropertyCard({
 
     const cleanPrice = price.replace(/,/g, "").trim();
     const numPrice = parseFloat(cleanPrice);
-    
+
     if (isNaN(numPrice)) return price;
 
     return new Intl.NumberFormat("es-PE", {

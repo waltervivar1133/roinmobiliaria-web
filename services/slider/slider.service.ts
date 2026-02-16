@@ -1,9 +1,7 @@
 import type { SliderResponse } from "@/types/slider";
 import { ENV } from "@/constants/env";
 
-
 export async function getSlider(): Promise<SliderResponse> {
-
   const url = `${ENV.SLIDERS_ENDPOINT}/${ENV.VERSION}/slider/${ENV.SLIDER}/slides`;
 
   const response = await fetch(url, {

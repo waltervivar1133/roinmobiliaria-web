@@ -20,8 +20,9 @@ export default function Header() {
 
   return (
     <header
-      className={`w-full fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ease-in-out ${isScrolled ? "shadow-lg" : "shadow-sm"
-        }`}
+      className={`w-full fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ease-in-out ${
+        isScrolled ? "shadow-lg" : "shadow-sm"
+      }`}
     >
       <div className="w-full py-2 px-4 bg-gradient-primary">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-white text-sm">
@@ -50,7 +51,9 @@ export default function Header() {
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
               <polyline points="22,6 12,13 2,6" />
             </svg>
-            <span className="text-xs md:text-sm">informes@roinmobiliaria.com</span>
+            <span className="text-xs md:text-sm">
+              informes@roinmobiliaria.com
+            </span>
           </div>
         </div>
       </div>
@@ -60,7 +63,12 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image src="/images/logos/logo-oficial.png" alt="Logo" width={180} height={100} />
+            <Image
+              src="/images/logos/logo-oficial.png"
+              alt="Logo"
+              width={180}
+              height={100}
+            />
           </Link>
 
           {/* Navigation Links - Desktop */}

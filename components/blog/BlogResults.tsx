@@ -11,7 +11,10 @@ interface BlogResultsProps {
   showFeatured?: boolean;
 }
 
-export default function BlogResults({ posts, showFeatured = false }: BlogResultsProps) {
+export default function BlogResults({
+  posts,
+  showFeatured = false,
+}: BlogResultsProps) {
   const [displayedPosts, setDisplayedPosts] = useState<BlogPost[]>(posts);
 
   useEffect(() => {
@@ -52,7 +55,9 @@ export default function BlogResults({ posts, showFeatured = false }: BlogResults
         {/* Remaining Posts */}
         {posts.length > 4 && (
           <section>
-            <h2 className="text-3xl font-bold mb-8 text-primary-blue">Más Artículos</h2>
+            <h2 className="text-3xl font-bold mb-8 text-primary-blue">
+              Más Artículos
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {posts.slice(4).map((post) => (
                 <BlogVerticalCard key={post.id} post={post} />

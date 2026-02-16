@@ -43,15 +43,21 @@ export default async function BlogPostPage({ params }: PageProps) {
     if (category) {
       try {
         const relatedData = await getRecentPosts(3);
-        relatedPosts = relatedData.posts?.nodes.filter((p) => p.id !== postId).slice(0, 3);
+        relatedPosts = relatedData.posts?.nodes
+          .filter((p) => p.id !== postId)
+          .slice(0, 3);
       } catch {
         // If category fetch fails, use recent posts
         const recentData = await getRecentPosts(4);
-        relatedPosts = recentData.posts?.nodes.filter((p) => p.id !== postId).slice(0, 3);
+        relatedPosts = recentData.posts?.nodes
+          .filter((p) => p.id !== postId)
+          .slice(0, 3);
       }
     } else {
       const recentData = await getRecentPosts(4);
-      relatedPosts = recentData.posts?.nodes.filter((p) => p.id !== postId).slice(0, 3);
+      relatedPosts = recentData.posts?.nodes
+        .filter((p) => p.id !== postId)
+        .slice(0, 3);
     }
   } catch (error) {
     console.error("Error fetching blog post:", error);
@@ -76,32 +82,32 @@ export default async function BlogPostPage({ params }: PageProps) {
   // Función para remover enlaces de las imágenes en el contenido
   const processContent = (html: string): string => {
     let processed = html;
-    
+
     // Caso 1: <a> que contiene <figure> con <img> (bloques de WordPress Gutenberg)
     // Maneja casos como: <a><figure class="wp-block-image"><img></figure></a>
     processed = processed.replace(
       /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<figure[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/figure>)\s*<\/a>/gi,
-      '$1'
+      "$1"
     );
-    
+
     // Caso 2: <a> que contiene directamente <img> (sin figure)
     processed = processed.replace(
       /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<img[^>]*>)\s*<\/a>/gi,
-      '$1'
+      "$1"
     );
-    
+
     // Caso 3: <a> que contiene <figure> completo (cualquier estructura)
     processed = processed.replace(
       /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<figure[^>]*>[\s\S]*?<\/figure>)\s*<\/a>/gi,
-      '$1'
+      "$1"
     );
-    
+
     // Caso 4: <a> sin href pero que contiene imágenes (por si acaso)
     processed = processed.replace(
       /<a[^>]*>(\s*(?:<figure[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/figure>|<img[^>]*>))\s*<\/a>/gi,
-      '$1'
+      "$1"
     );
-    
+
     return processed;
   };
 
@@ -135,11 +141,8 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
             {formatDate(post.date)} • {category}
           </div>
-
         </div>
       </div>
-
-
 
       {/* Content */}
       <article className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-0">
@@ -153,7 +156,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       {relatedPosts.length > 0 && (
         <section className="bg-gray-50 border-t border-gray-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
-            <h2 className="text-md md:text-xl lg:text-xl xl:text-xl font-bold mb-6 md:mb-8 text-primary-blue">Artículos Relacionados</h2>
+            <h2 className="text-md md:text-xl lg:text-xl xl:text-xl font-bold mb-6 md:mb-8 text-primary-blue">
+              Artículos Relacionados
+            </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {relatedPosts.map((relatedPost) => (
                 <BlogVerticalCard key={relatedPost.id} post={relatedPost} />

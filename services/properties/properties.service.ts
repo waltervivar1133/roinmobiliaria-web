@@ -61,9 +61,7 @@ export async function getPropertyBySlug(
 /**
  * Obtiene una propiedad por su ID
  */
-export async function getPropertyById(
-  id: number
-): Promise<PropertyResponse> {
+export async function getPropertyById(id: number): Promise<PropertyResponse> {
   return graphqlClient.request<PropertyResponse>(GET_PROPERTY_BY_ID, {
     id: id.toString(),
   });
@@ -88,7 +86,6 @@ export async function getRelatedProperties(
   property: Property,
   first: number = 3
 ): Promise<PropertiesResponse> {
-
   const categoryIds =
     property.productCategories?.nodes.map((cat) => cat.id) || [];
 
@@ -98,11 +95,10 @@ export async function getRelatedProperties(
         GET_RELATED_PROPERTIES,
         {
           first,
-          categoryIds: categoryIds.map(id => id.toString()),
+          categoryIds: categoryIds.map((id) => id.toString()),
           excludeId: property.databaseId,
         }
       );
-
 
       if (result.products.nodes.length > 0) {
         return result;
@@ -114,19 +110,20 @@ export async function getRelatedProperties(
 
   // Si no hay categorías o no se encontraron propiedades relacionadas,
   // devolver las últimas propiedades generales (excluyendo la actual)
-  return graphqlClient.request<PropertiesResponse>(GET_ALL_PROPERTIES, {
-    first: first + 1, 
-  }).then((result) => {
-
-    const filteredNodes = result.products.nodes.filter(
-      (p) => p.id !== property.id
-    );
-    return {
-      ...result,
-      products: {
-        ...result.products,
-        nodes: filteredNodes.slice(0, first),
-      },
-    };
-  });
+  return graphqlClient
+    .request<PropertiesResponse>(GET_ALL_PROPERTIES, {
+      first: first + 1,
+    })
+    .then((result) => {
+      const filteredNodes = result.products.nodes.filter(
+        (p) => p.id !== property.id
+      );
+      return {
+        ...result,
+        products: {
+          ...result.products,
+          nodes: filteredNodes.slice(0, first),
+        },
+      };
+    });
 }

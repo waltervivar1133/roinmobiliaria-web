@@ -1,4 +1,4 @@
-import { gql } from 'graphql-request'
+import { gql } from "graphql-request";
 
 export const POST_FIELDS = gql`
   fragment PostFields on Post {
@@ -37,16 +37,12 @@ export const POST_FIELDS = gql`
       }
     }
   }
-`
+`;
 
 export const GET_ALL_POSTS = gql`
   ${POST_FIELDS}
   query GetAllPosts($first: Int = 10, $after: String) {
-    posts(
-      first: $first
-      after: $after
-      where: { status: PUBLISH }
-    ) {
+    posts(first: $first, after: $after, where: { status: PUBLISH }) {
       pageInfo {
         hasNextPage
         endCursor
@@ -56,7 +52,7 @@ export const GET_ALL_POSTS = gql`
       }
     }
   }
-`
+`;
 
 export const GET_POST_BY_SLUG = gql`
   ${POST_FIELDS}
@@ -65,7 +61,7 @@ export const GET_POST_BY_SLUG = gql`
       ...PostFields
     }
   }
-`
+`;
 
 export const GET_POST_BY_ID = gql`
   ${POST_FIELDS}
@@ -74,7 +70,7 @@ export const GET_POST_BY_ID = gql`
       ...PostFields
     }
   }
-`
+`;
 
 export const GET_RECENT_POSTS = gql`
   ${POST_FIELDS}
@@ -88,21 +84,15 @@ export const GET_RECENT_POSTS = gql`
       }
     }
   }
-`
+`;
 
 export const GET_POSTS_BY_CATEGORY = gql`
   ${POST_FIELDS}
   query GetPostsByCategory($category: String!, $first: Int = 10) {
-    posts(
-      first: $first
-      where: { 
-        status: PUBLISH
-        categoryName: $category
-      }
-    ) {
+    posts(first: $first, where: { status: PUBLISH, categoryName: $category }) {
       nodes {
         ...PostFields
       }
     }
   }
-`
+`;

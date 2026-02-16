@@ -7,20 +7,19 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
           {/* Logo */}
-          <Image src="/images/logos/logo-white.png" alt="Logo" width={180} height={100} />
+          <Image
+            src="/images/logos/logo-white.png"
+            alt="Logo"
+            width={180}
+            height={100}
+          />
 
           {/* Navigation Links */}
           <div className="flex flex-wrap items-center gap-6">
-            <Link
-              href="/"
-              className="hover:opacity-80 transition-opacity"
-            >
+            <Link href="/" className="hover:opacity-80 transition-opacity">
               Inicio
             </Link>
-            <Link
-              href="/about"
-              className="hover:opacity-80 transition-opacity"
-            >
+            <Link href="/about" className="hover:opacity-80 transition-opacity">
               Sobre mí
             </Link>
             <Link
@@ -29,10 +28,7 @@ export default function Footer() {
             >
               Propiedades
             </Link>
-            <Link
-              href="/blog"
-              className="hover:opacity-80 transition-opacity"
-            >
+            <Link href="/blog" className="hover:opacity-80 transition-opacity">
               Blog
             </Link>
           </div>
@@ -46,7 +42,13 @@ export default function Footer() {
               className="w-10 h-10 rounded-full border-2 border-white flex items-center justify-center text-white transition-all duration-200 hover:bg-white hover:text-primary-blue hover:scale-110 hover:shadow-lg"
               aria-label="Tiktok"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
                 <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3z" />
               </svg>
             </a>

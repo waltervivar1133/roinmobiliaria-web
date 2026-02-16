@@ -12,8 +12,7 @@ export function SliderArrowButton({
   ariaLabel,
 }: SliderArrowButtonProps) {
   const pathD = direction === "left" ? "M15 18l-6-6 6-6" : "M9 18l6-6-6-6";
-  const positionClass =
-    direction === "left" ? "left-4" : "right-4";
+  const positionClass = direction === "left" ? "left-4" : "right-4";
 
   return (
     <button

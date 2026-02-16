@@ -2,7 +2,7 @@ import type { Property, PropertyImage } from "@/types/property";
 
 export function preparePropertyImages(property: Property): PropertyImage[] {
   const images = property.galleryImages?.nodes || [];
-  
+
   if (property.image) {
     const hasMainImage = images.some(
       (img) => img.sourceUrl === property.image?.sourceUrl
@@ -14,7 +14,7 @@ export function preparePropertyImages(property: Property): PropertyImage[] {
       });
     }
   }
-  
+
   return images;
 }
 

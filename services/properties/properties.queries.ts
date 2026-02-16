@@ -141,10 +141,14 @@ export const GET_HOME_PROPERTIES = gql`
 
 export const GET_RELATED_PROPERTIES = gql`
   ${PRODUCT_FIELDS}
-  query GetRelatedProperties($first: Int = 3, $categoryIds: [String], $excludeId: Int) {
+  query GetRelatedProperties(
+    $first: Int = 3
+    $categoryIds: [String]
+    $excludeId: Int
+  ) {
     products(
       first: $first
-      where: { 
+      where: {
         status: "publish"
         categoryIn: $categoryIds
         exclude: [$excludeId]

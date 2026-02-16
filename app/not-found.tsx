@@ -22,8 +22,8 @@ export default function NotFound() {
           Página no encontrada
         </h1>
         <p className="text-gray-600 mb-8 md:mb-10 text-sm md:text-base">
-          La página que buscas no existe o fue movida. Puedes volver al inicio
-          y explorar las secciones disponibles.
+          La página que buscas no existe o fue movida. Puedes volver al inicio y
+          explorar las secciones disponibles.
         </p>
 
         <Link

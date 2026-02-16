@@ -22,7 +22,8 @@ export function buildWhatsAppMessage(data: ContactFormData): string {
   }
 
   if (!data.propertyInterest && !data.message) {
-    message += "\n\nMe gustaría recibir más información sobre propiedades disponibles.";
+    message +=
+      "\n\nMe gustaría recibir más información sobre propiedades disponibles.";
   }
 
   return message;

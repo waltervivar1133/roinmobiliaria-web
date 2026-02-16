@@ -12,9 +12,12 @@ if (typeof window !== "undefined") {
     delete defaultIcon._getIconUrl;
   }
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
-    iconUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
-    shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
+    iconRetinaUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon-2x.png",
+    iconUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-icon.png",
+    shadowUrl:
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/marker-shadow.png",
   });
 }
 
@@ -35,9 +38,7 @@ export default function PropertyMap({ location, address }: PropertyMapProps) {
 
   return (
     <section>
-      <h2 className="text-lg font-medium mb-6 text-primary-blue">
-        Ubicación
-      </h2>
+      <h2 className="text-lg font-medium mb-6 text-primary-blue">Ubicación</h2>
       <div className="space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600">
           {/* <span className="font-mono text-sm text-primary-blue">{coordinates}</span> */}
@@ -74,7 +75,9 @@ export default function PropertyMap({ location, address }: PropertyMapProps) {
             <Marker position={[location.latitude, location.longitude]}>
               <Popup>
                 <div className="text-center">
-                  <p className="font-semibold">{address || "Property location"}</p>
+                  <p className="font-semibold">
+                    {address || "Property location"}
+                  </p>
                   <p className="text-sm text-gray-600">{coordinates}</p>
                 </div>
               </Popup>

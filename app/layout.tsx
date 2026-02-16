@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { LayoutNavProvider } from "@/components/LayoutNavContext";
 
@@ -23,9 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body
-        className={`${poppins.variable} font-sans antialiased`}
-      >
+      <body className={`${poppins.variable} font-sans antialiased`}>
         <LayoutNavProvider>{children}</LayoutNavProvider>
         <SpeedInsights />
       </body>

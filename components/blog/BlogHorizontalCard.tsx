@@ -45,14 +45,14 @@ export default function BlogHorizontalCard({ post }: BlogHorizontalCardProps) {
           {post.title}
         </h3>
         {post.excerpt && (
-          <p 
+          <p
             className="text-gray-600 text-xs mt-1 overflow-hidden"
             style={{
-              display: '-webkit-box',
+              display: "-webkit-box",
               WebkitLineClamp: 2,
-              WebkitBoxOrient: 'vertical',
-              lineHeight: '1.4',
-              maxHeight: '2.8em',
+              WebkitBoxOrient: "vertical",
+              lineHeight: "1.4",
+              maxHeight: "2.8em",
             }}
           >
             {post.excerpt.replace(/<[^>]*>/g, "")}

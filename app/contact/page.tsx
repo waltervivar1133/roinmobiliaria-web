@@ -22,8 +22,8 @@ export default async function ContactPage() {
               Contáctame
             </h1>
             <p className="text-sm md:text-base lg:text-base opacity-90 px-2">
-              Estoy aquí para ayudarte a encontrar la propiedad perfecta. 
-              No dudes en escribirme, responderé lo antes posible.
+              Estoy aquí para ayudarte a encontrar la propiedad perfecta. No
+              dudes en escribirme, responderé lo antes posible.
             </p>
           </div>
         </div>
@@ -38,7 +38,8 @@ export default async function ContactPage() {
               Envíame un mensaje
             </h2>
             <p className="text-sm md:text-base text-gray-600 mb-4 md:mb-6">
-              Completa el formulario y te contactaré por WhatsApp con toda la información.
+              Completa el formulario y te contactaré por WhatsApp con toda la
+              información.
             </p>
 
             <ContactForm properties={properties} />
@@ -68,7 +69,9 @@ export default async function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1 text-sm md:text-base">Teléfono</p>
+                    <p className="font-semibold text-gray-900 mb-1 text-sm md:text-base">
+                      Teléfono
+                    </p>
                     <a
                       href="tel:+51997896954"
                       className="text-primary-blue hover:underline text-sm md:text-base"
@@ -95,7 +98,9 @@ export default async function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900 mb-1 text-sm md:text-base">Email</p>
+                    <p className="font-semibold text-gray-900 mb-1 text-sm md:text-base">
+                      Email
+                    </p>
                     <a
                       href="mailto:informes@roinmobiliaria.com"
                       className="text-primary-blue hover:underline text-sm md:text-base break-all"

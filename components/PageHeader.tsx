@@ -13,7 +13,10 @@ export default function PageHeader({
   title,
   description,
   count,
-  countLabel = { singular: "propiedad disponible", plural: "propiedades disponibles" },
+  countLabel = {
+    singular: "propiedad disponible",
+    plural: "propiedades disponibles",
+  },
   className = "",
 }: PageHeaderProps) {
   return (

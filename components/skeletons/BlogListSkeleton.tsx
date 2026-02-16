@@ -20,7 +20,6 @@ export default function BlogListSkeleton() {
         </div>
       </div>
 
-
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mb-16">
           <div className="lg:col-span-2 animate-pulse">

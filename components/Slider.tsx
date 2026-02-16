@@ -10,8 +10,10 @@ interface SliderProps {
   autoPlayInterval?: number;
 }
 
-
-function parseSlideTitle(title: string): { projectName: string; type: string | null } {
+function parseSlideTitle(title: string): {
+  projectName: string;
+  type: string | null;
+} {
   const parts = title.split(/\s*\/\s*/);
   if (parts.length >= 2) {
     return { projectName: parts[0].trim(), type: parts[1].trim() };
@@ -34,14 +36,20 @@ export default function Slider({
     : { projectName: "", type: null };
 
   useEffect(() => {
-    if (!hasMultipleSlides || !isAutoPlaying || publishedSlides.length <= 1) return;
+    if (!hasMultipleSlides || !isAutoPlaying || publishedSlides.length <= 1)
+      return;
 
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % publishedSlides.length);
     }, autoPlayInterval);
 
     return () => clearInterval(interval);
-  }, [publishedSlides.length, hasMultipleSlides, isAutoPlaying, autoPlayInterval]);
+  }, [
+    publishedSlides.length,
+    hasMultipleSlides,
+    isAutoPlaying,
+    autoPlayInterval,
+  ]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
@@ -50,7 +58,9 @@ export default function Slider({
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + publishedSlides.length) % publishedSlides.length);
+    setCurrentIndex(
+      (prev) => (prev - 1 + publishedSlides.length) % publishedSlides.length
+    );
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
@@ -70,10 +80,10 @@ export default function Slider({
       <div
         className="absolute inset-0 z-10 pointer-events-none"
         style={{
-          background: "linear-gradient(90deg, rgba(28, 62, 124, 0.75) 0%, rgba(28, 62, 124, 0.2) 50%, rgba(1, 128, 56, 0.15) 100%)",
+          background:
+            "linear-gradient(90deg, rgba(28, 62, 124, 0.75) 0%, rgba(28, 62, 124, 0.2) 50%, rgba(1, 128, 56, 0.15) 100%)",
         }}
       />
-
 
       <div className="absolute left-0 top-0 w-full h-full z-10 flex items-center justify-center md:justify-start pointer-events-none">
         <div className="max-w-7xl mx-auto w-full px-4 md:px-8 py-8">

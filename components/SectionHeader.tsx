@@ -34,7 +34,9 @@ export default function SectionHeader({
       </h2>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
         {description && (
-          <p className="text-sm text-gray-600 max-w-2xl flex-1">{description}</p>
+          <p className="text-sm text-gray-600 max-w-2xl flex-1">
+            {description}
+          </p>
         )}
         {showViewMore && (
           <div className="flex items-center">

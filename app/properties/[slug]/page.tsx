@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
-import { getPropertyBySlug, getRelatedProperties } from "@/services/properties/properties.service";
+import {
+  getPropertyBySlug,
+  getRelatedProperties,
+} from "@/services/properties/properties.service";
 import PropertyImageSlider from "@/components/PropertyImageSlider";
 import PropertyInfo from "@/components/PropertyInfo";
 import PropertyMapWrapper from "@/components/PropertyMapWrapper";
@@ -24,7 +27,7 @@ async function fetchPropertyData(slug: string): Promise<{
   }
 
   const relatedData = await getRelatedProperties(property, 3);
-  
+
   return {
     property,
     relatedProperties: relatedData.products.nodes,

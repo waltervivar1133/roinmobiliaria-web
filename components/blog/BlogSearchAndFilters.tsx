@@ -292,7 +292,9 @@ export default function BlogSearchAndFilters({
 
               {/* Category Filters */}
               <div className="space-y-3">
-                <p className="text-sm font-semibold text-gray-700 mb-3">Categorías</p>
+                <p className="text-sm font-semibold text-gray-700 mb-3">
+                  Categorías
+                </p>
                 <button
                   onClick={() => {
                     handleCategoryClick(null);

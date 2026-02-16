@@ -40,15 +40,26 @@ export default function AboutPage() {
             {/* Text Content */}
             <div className="space-y-4 md:space-y-6 lg:space-y-8 order-2">
               <h3 className="text-xl md:text-2xl lg:text-3xl font-bold italic text-primary-blue leading-tight">
-                Más de 13 años brindando asesoría inmobiliaria segura, profesional y con garantía
+                Más de 13 años brindando asesoría inmobiliaria segura,
+                profesional y con garantía
               </h3>
 
               <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed">
-                Soy una Agente Inmobiliaria comprometida con mis clientes, dedicada a garantizar un proceso seguro y responsable de compra, venta y alquiler de propiedades, minimizando riesgos e inconvenientes. Con más de 13 años de experiencia en el rubro inmobiliario, me encargo de la comercialización del inmueble, valoración comercial y asesoramiento para regularizar la documentación.
+                Soy una Agente Inmobiliaria comprometida con mis clientes,
+                dedicada a garantizar un proceso seguro y responsable de compra,
+                venta y alquiler de propiedades, minimizando riesgos e
+                inconvenientes. Con más de 13 años de experiencia en el rubro
+                inmobiliario, me encargo de la comercialización del inmueble,
+                valoración comercial y asesoramiento para regularizar la
+                documentación.
               </p>
 
               <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed">
-                Mi objetivo principal es brindar calidad y excelencia en el servicio de asesoría al cliente en todo lo relacionado al ámbito inmobiliario. Me distingo por mi profesionalismo y garantía, siempre buscando interpretar y satisfacer las necesidades reales de mis clientes.
+                Mi objetivo principal es brindar calidad y excelencia en el
+                servicio de asesoría al cliente en todo lo relacionado al ámbito
+                inmobiliario. Me distingo por mi profesionalismo y garantía,
+                siempre buscando interpretar y satisfacer las necesidades reales
+                de mis clientes.
               </p>
             </div>
           </div>
@@ -71,13 +82,29 @@ export default function AboutPage() {
             {/* Text Content */}
             <div className="space-y-4 md:space-y-6 order-2 lg:order-1">
               <p className="text-sm md:text-base lg:text-base text-gray-700 leading-relaxed">
-                Actualmente cuento con más de 13 años de experiencia en el rubro de seguros de vida, tanto en ventas como en servicio al cliente. En mi rol como Ejecutiva de Mantenimiento de Cartera en InVita Seguros de Vida (Sura), me dediqué a brindar un servicio minucioso y personalizado de forma constante a los clientes. Mi enfoque principal era asesorar y satisfacer sus necesidades, proporcionando soluciones de manera rápida y convirtiéndome en su aliada y amiga.
+                Actualmente cuento con más de 13 años de experiencia en el rubro
+                de seguros de vida, tanto en ventas como en servicio al cliente.
+                En mi rol como Ejecutiva de Mantenimiento de Cartera en InVita
+                Seguros de Vida (Sura), me dediqué a brindar un servicio
+                minucioso y personalizado de forma constante a los clientes. Mi
+                enfoque principal era asesorar y satisfacer sus necesidades,
+                proporcionando soluciones de manera rápida y convirtiéndome en
+                su aliada y amiga.
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-700 leading-relaxed">
-                Mi trayectoria laboral comenzó en Minero Perú Comercial (MINPECO), una empresa de comercialización de productos mineros, donde empecé como Asistente en la Biblioteca de la Oficina de Planificación y Estadística. Permanecí allí durante 3 años, tiempo en el que también estudié Secretariado Comercial. Luego, pasé a ser Secretaria en la División de Programación y Evaluación Comercial - OPE (1975-1982).
+                Mi trayectoria laboral comenzó en Minero Perú Comercial
+                (MINPECO), una empresa de comercialización de productos mineros,
+                donde empecé como Asistente en la Biblioteca de la Oficina de
+                Planificación y Estadística. Permanecí allí durante 3 años,
+                tiempo en el que también estudié Secretariado Comercial. Luego,
+                pasé a ser Secretaria en la División de Programación y
+                Evaluación Comercial - OPE (1975-1982).
               </p>
               <p className="text-sm md:text-base lg:text-base text-gray-700 leading-relaxed">
-                Posteriormente, entre 1982 y 1986, trabajé como Secretaria de Gerencia en CONSTRUCTORA SABRE S.A. Luego, durante el período de 1986 a 1990, desempeñé el cargo de Secretaria de Gerencia en Peruana de Pesca S.A, en Liquidación (PEPESCA).
+                Posteriormente, entre 1982 y 1986, trabajé como Secretaria de
+                Gerencia en CONSTRUCTORA SABRE S.A. Luego, durante el período de
+                1986 a 1990, desempeñé el cargo de Secretaria de Gerencia en
+                Peruana de Pesca S.A, en Liquidación (PEPESCA).
               </p>
             </div>
 
@@ -124,7 +151,9 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Proporcionar un asesoramiento integral, a personas y empresas, que permita solucionar todas sus necesidades relacionadas con el mercado inmobiliario.
+                  Proporcionar un asesoramiento integral, a personas y empresas,
+                  que permita solucionar todas sus necesidades relacionadas con
+                  el mercado inmobiliario.
                 </p>
               </div>
             </div>
@@ -153,7 +182,10 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Convertirme en la agente inmobiliaria en la cual, las personas que intervienen en este mercado piensen en mí como primera opción en el momento de vender, comprar o alquilar una vivienda.
+                  Convertirme en la agente inmobiliaria en la cual, las personas
+                  que intervienen en este mercado piensen en mí como primera
+                  opción en el momento de vender, comprar o alquilar una
+                  vivienda.
                 </p>
               </div>
             </div>
@@ -182,7 +214,9 @@ export default function AboutPage() {
                   </h3>
                 </div>
                 <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-                  Posicionarme como agente inmobiliaria y seguir ofreciendo soluciones factibles que cumplan con las expectativas y necesidades de mis clientes.
+                  Posicionarme como agente inmobiliaria y seguir ofreciendo
+                  soluciones factibles que cumplan con las expectativas y
+                  necesidades de mis clientes.
                 </p>
               </div>
             </div>

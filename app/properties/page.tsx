@@ -6,7 +6,8 @@ import type { Property } from "@/types/property";
 
 export const metadata = {
   title: "Propiedades | RO Inmobiliaria",
-  description: "Explora todas nuestras propiedades disponibles. Departamentos, terrenos y más opciones para ti.",
+  description:
+    "Explora todas nuestras propiedades disponibles. Departamentos, terrenos y más opciones para ti.",
 };
 
 async function fetchProperties(): Promise<Property[]> {
@@ -29,7 +30,10 @@ export default async function PropertiesPage() {
         title="Todas las Propiedades"
         description="Descubre nuestra selección completa de propiedades disponibles. Encuentra el lugar perfecto para ti."
         count={properties.length}
-        countLabel={{ singular: "propiedad disponible", plural: "propiedades disponibles" }}
+        countLabel={{
+          singular: "propiedad disponible",
+          plural: "propiedades disponibles",
+        }}
       />
 
       {hasProperties ? (

@@ -4,9 +4,7 @@ interface PropertyDetailsProps {
   details?: PropertyDetailsType | null;
 }
 
-export default function PropertyDetails({
-  details,
-}: PropertyDetailsProps) {
+export default function PropertyDetails({ details }: PropertyDetailsProps) {
   if (!details) {
     return null;
   }
@@ -18,7 +16,9 @@ export default function PropertyDetails({
     return String(value);
   };
 
-  const formatPrice = (priceString: string | null | undefined): string | null => {
+  const formatPrice = (
+    priceString: string | null | undefined
+  ): string | null => {
     if (!priceString || priceString.trim() === "" || priceString === "null") {
       return null;
     }
@@ -190,9 +190,7 @@ export default function PropertyDetails({
     },
     {
       label: "Número de piso:",
-      value: details?.numeroDePiso
-        ? formatValue(details.numeroDePiso)
-        : null,
+      value: details?.numeroDePiso ? formatValue(details.numeroDePiso) : null,
       icon: (
         <svg
           className="w-5 h-5 text-primary-green"
@@ -211,9 +209,7 @@ export default function PropertyDetails({
     },
     {
       label: "Pisos totales:",
-      value: details?.pisosTotales
-        ? formatValue(details.pisosTotales)
-        : null,
+      value: details?.pisosTotales ? formatValue(details.pisosTotales) : null,
       icon: (
         <svg
           className="w-5 h-5 text-primary-green"
@@ -277,7 +273,9 @@ export default function PropertyDetails({
       {/* Detalles */}
       {detailItems.length > 0 && (
         <section>
-          <h2 className="text-lg font-medium mb-6 text-primary-blue">Detalles</h2>
+          <h2 className="text-lg font-medium mb-6 text-primary-blue">
+            Detalles
+          </h2>
           <div className="grid grid-cols-2 gap-4">
             {detailItems.map((item, index) => (
               <div key={index} className="flex items-center gap-3">

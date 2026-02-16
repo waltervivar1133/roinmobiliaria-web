@@ -28,7 +28,7 @@ export const MEDIA_FIELDS = gql`
     date
     modified
   }
-`
+`;
 
 export const GET_ALL_MEDIA = gql`
   ${MEDIA_FIELDS}
@@ -47,8 +47,7 @@ export const GET_ALL_MEDIA = gql`
       }
     }
   }
-`
-
+`;
 
 export const GET_MEDIA_ITEM_BY_ID = gql`
   ${MEDIA_FIELDS}
@@ -71,10 +70,7 @@ export const GET_MEDIA_ITEM_BY_SLUG = gql`
 export const GET_IMAGES_BY_MIME_TYPE = gql`
   ${MEDIA_FIELDS}
   query GetImagesByMimeType($mimeType: MimeTypeEnum!, $first: Int = 20) {
-    mediaItems(
-      first: $first
-      where: { mimeType: $mimeType, status: INHERIT }
-    ) {
+    mediaItems(first: $first, where: { mimeType: $mimeType, status: INHERIT }) {
       nodes {
         ...MediaFields
       }

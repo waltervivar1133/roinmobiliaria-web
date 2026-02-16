@@ -45,7 +45,7 @@ export function useContactForm() {
 
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
-    
+
     if (!validateForm()) {
       return false;
     }
