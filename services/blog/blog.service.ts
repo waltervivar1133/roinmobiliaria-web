@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { graphqlClient } from "@/services/client";
 import {
   GET_ALL_POSTS,
@@ -18,6 +19,11 @@ export async function getAllPosts(
 export async function getPostBySlug(slug: string): Promise<PostResponse> {
   return graphqlClient.request(GET_POST_BY_SLUG, { slug });
 }
+
+/** Misma petición deduplicada entre `generateMetadata` y la página. */
+export const getPostBySlugCached = cache((slug: string) =>
+  getPostBySlug(slug)
+);
 
 export async function getPostById(id: number): Promise<PostResponse> {
   return graphqlClient.request(GET_POST_BY_ID, { id: id.toString() });

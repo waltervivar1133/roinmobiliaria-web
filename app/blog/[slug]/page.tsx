@@ -1,6 +1,14 @@
-import { getPostBySlug, getRecentPosts } from "@/services/blog/blog.service";
+import type { Metadata } from "next";
+import {
+  getPostBySlugCached,
+  getRecentPosts,
+} from "@/services/blog/blog.service";
 import Link from "next/link";
 import BlogVerticalCard from "@/components/blog/BlogVerticalCard";
+import JsonLd from "@/components/seo/JsonLd";
+import { absoluteUrl } from "@/lib/site";
+import { stripHtml } from "@/lib/seo/strip-html";
+import { buildArticleJsonLd } from "@/lib/seo/blog-jsonld";
 import type { BlogPost } from "@/types/blog";
 import { notFound } from "next/navigation";
 
@@ -8,18 +16,45 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps) {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
   try {
-    const { post } = await getPostBySlug(slug);
+    const { post } = await getPostBySlugCached(slug);
+    if (!post) {
+      return { title: "Artículo no encontrado" };
+    }
+
+    const description = stripHtml(post.excerpt, 155) || post.title;
+    const url = absoluteUrl(`/blog/${slug}`);
+    const image = post.featuredImage?.node?.sourceUrl;
+
     return {
-      title: `${post.title} | RO Inmobiliaria Blog`,
-      description: post.excerpt.replace(/<[^>]*>/g, ""),
+      title: post.title,
+      description,
+      alternates: { canonical: url },
+      openGraph: {
+        title: post.title,
+        description,
+        url,
+        type: "article",
+        publishedTime: post.date,
+        modifiedTime: post.modified,
+        authors: [post.author?.node?.name || "Rossana Osores"],
+        images: image
+          ? [{ url: image, alt: post.featuredImage?.node?.altText || post.title }]
+          : undefined,
+      },
+      twitter: {
+        card: image ? "summary_large_image" : "summary",
+        title: post.title,
+        description,
+        images: image ? [image] : undefined,
+      },
     };
   } catch {
-    return {
-      title: "Artículo no encontrado | RO Inmobiliaria Blog",
-    };
+    return { title: "Artículo no encontrado" };
   }
 }
 
@@ -29,7 +64,7 @@ export default async function BlogPostPage({ params }: PageProps) {
   let relatedPosts: BlogPost[] = [];
 
   try {
-    const postData = await getPostBySlug(slug);
+    const postData = await getPostBySlugCached(slug);
     post = postData.post;
 
     if (!post) {
@@ -115,6 +150,8 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <div className="bg-white">
+      <JsonLd data={buildArticleJsonLd(post)} />
+
       {/* Header */}
       <div className="bg-gray-50 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">

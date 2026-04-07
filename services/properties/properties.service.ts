@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { graphqlClient } from "../client";
 import {
   GET_ALL_PROPERTIES,
@@ -57,6 +58,11 @@ export async function getPropertyBySlug(
     slug,
   });
 }
+
+/** Misma petición deduplicada entre `generateMetadata` y la página. */
+export const getPropertyBySlugCached = cache((slug: string) =>
+  getPropertyBySlug(slug)
+);
 
 /**
  * Obtiene una propiedad por su ID

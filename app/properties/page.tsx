@@ -1,13 +1,22 @@
+import type { Metadata } from "next";
 import { getAllProperties } from "@/services/properties/properties.service";
 import PropertiesSection from "@/components/PropertiesSection";
 import PageHeader from "@/components/PageHeader";
 import EmptyState from "@/components/EmptyState";
+import { absoluteUrl } from "@/lib/site";
 import type { Property } from "@/types/property";
 
-export const metadata = {
-  title: "Propiedades | RO Inmobiliaria",
+export const metadata: Metadata = {
+  title: "Propiedades",
   description:
-    "Explora todas nuestras propiedades disponibles. Departamentos, terrenos y más opciones para ti.",
+    "Explora todas nuestras propiedades disponibles en Perú: departamentos, terrenos y más. RO Inmobiliaria — Rossana Osores.",
+  alternates: { canonical: absoluteUrl("/properties") },
+  openGraph: {
+    title: "Propiedades | RO Inmobiliaria",
+    description:
+      "Explora todas nuestras propiedades disponibles. Departamentos, terrenos y más opciones.",
+    url: absoluteUrl("/properties"),
+  },
 };
 
 async function fetchProperties(): Promise<Property[]> {

@@ -1,6 +1,21 @@
+import type { Metadata } from "next";
 import { getAllProperties } from "@/services/properties/properties.service";
 import ContactForm from "@/components/ContactForm";
+import { absoluteUrl } from "@/lib/site";
 import type { Property } from "@/types/property";
+
+export const metadata: Metadata = {
+  title: "Contacto",
+  description:
+    "Contáctanos para venta o alquiler de propiedades en Perú. WhatsApp, correo y formulario — RO Inmobiliaria, Rossana Osores.",
+  alternates: { canonical: absoluteUrl("/contact") },
+  openGraph: {
+    title: "Contacto | RO Inmobiliaria",
+    description:
+      "Estamos para ayudarte a encontrar la propiedad perfecta en Perú.",
+    url: absoluteUrl("/contact"),
+  },
+};
 
 export default async function ContactPage() {
   let properties: Property[] = [];

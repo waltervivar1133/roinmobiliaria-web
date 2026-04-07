@@ -1,11 +1,19 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import ContactSection from "@/components/ContactSection";
+import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Sobre Mí | RO Inmobiliaria - Rossana Osores",
+  title: "Sobre mí",
   description:
-    "Más de 13 años brindando asesoría inmobiliaria segura, profesional y con garantía. Experiencia y compromiso para cuidar de ti y tu familia.",
+    "Más de 13 años brindando asesoría inmobiliaria segura, profesional y con garantía. Rossana Osores — RO Inmobiliaria, Perú.",
+  alternates: { canonical: absoluteUrl("/about") },
+  openGraph: {
+    title: "Sobre mí | RO Inmobiliaria",
+    description:
+      "Asesoría inmobiliaria segura y profesional con Rossana Osores.",
+    url: absoluteUrl("/about"),
+  },
 };
 
 export default function AboutPage() {

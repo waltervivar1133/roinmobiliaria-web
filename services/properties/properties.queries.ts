@@ -61,8 +61,8 @@ export const PRODUCT_FIELDS = gql`
 
 export const GET_ALL_PROPERTIES = gql`
   ${PRODUCT_FIELDS}
-  query GetAllProperties($first: Int = 100) {
-    products(first: $first, where: { status: "publish" }) {
+  query GetAllProperties($first: Int = 100, $after: String) {
+    products(first: $first, after: $after, where: { status: "publish" }) {
       pageInfo {
         hasNextPage
         endCursor

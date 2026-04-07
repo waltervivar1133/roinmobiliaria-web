@@ -1,15 +1,24 @@
+import type { Metadata } from "next";
 import {
   getAllPosts,
   getRecentPosts,
   getPopularPosts,
 } from "@/services/blog/blog.service";
 import BlogContent from "./BlogContent";
+import { absoluteUrl } from "@/lib/site";
 import type { BlogPost } from "@/types/blog";
 
-export const metadata = {
-  title: "Blog | RO Inmobiliaria",
+export const metadata: Metadata = {
+  title: "Blog",
   description:
-    "Consejos, tips y noticias sobre el mercado inmobiliario en Perú.",
+    "Consejos, tips y noticias sobre el mercado inmobiliario en Perú. RO Inmobiliaria — Rossana Osores.",
+  alternates: { canonical: absoluteUrl("/blog") },
+  openGraph: {
+    title: "Blog | RO Inmobiliaria",
+    description:
+      "Consejos, tips y noticias sobre el mercado inmobiliario en Perú.",
+    url: absoluteUrl("/blog"),
+  },
 };
 
 export default async function BlogPage() {

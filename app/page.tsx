@@ -1,13 +1,28 @@
+import type { Metadata } from "next";
 import RecommendationsSection from "@/components/RecommendationsSection";
 import Slider from "@/components/Slider";
 import MissionVisionSection from "@/components/MissionVisionSection";
 import NewsSection from "@/components/NewsSection";
 import ContactSection from "@/components/ContactSection";
+import { getSiteUrl } from "@/lib/site";
 import { getFeaturedProperties } from "@/services/properties/properties.service";
 import { getPublishedSlides } from "@/services/slider/slider.service";
 import { getRecentPosts } from "@/services/blog/blog.service";
 import type { Slide } from "@/types/slider";
 import type { BlogPost } from "@/types/blog";
+
+export const metadata: Metadata = {
+  title: { absolute: "RO Inmobiliaria - Rossana Osores" },
+  description:
+    "Inmobiliaria en Perú: venta y alquiler de departamentos, terrenos y más. Asesoría profesional con Rossana Osores.",
+  alternates: { canonical: getSiteUrl() },
+  openGraph: {
+    title: "RO Inmobiliaria - Rossana Osores",
+    description:
+      "Inmobiliaria en Perú: venta y alquiler de departamentos, terrenos y más.",
+    url: getSiteUrl(),
+  },
+};
 
 export default async function Home() {
   let slides: Slide[] = [];
