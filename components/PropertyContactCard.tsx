@@ -29,10 +29,10 @@ export default function PropertyContactCard({
   const priceInSoles = formatPrice(details?.soles);
   const priceInDollars = formatPrice(details?.dolares);
 
-  const price = priceInSoles
-    ? `S/ ${priceInSoles.toLocaleString()}`
-    : priceInDollars
-      ? `$${priceInDollars.toLocaleString()}`
+  const price = priceInDollars
+    ? `$${priceInDollars.toLocaleString()}`
+    : priceInSoles
+      ? `S/ ${priceInSoles.toLocaleString()}`
       : "Precio no disponible";
 
   return (
