@@ -1,4 +1,4 @@
-import PropertiesSection from "./PropertiesSection";
+import PropertiesSection from "@/components/properties/PropertiesSection";
 import type { Property } from "@/types/property";
 
 interface RecommendationsSectionProps {

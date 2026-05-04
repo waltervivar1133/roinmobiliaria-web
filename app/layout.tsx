@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
-import { LayoutNavProvider } from "@/components/LayoutNavContext";
+import { LayoutNavProvider } from "@/components/layout/LayoutNavContext";
 import JsonLd from "@/components/seo/JsonLd";
 import { getSiteUrl } from "@/lib/site";
 import { buildOrganizationJsonLd } from "@/lib/seo/organization-jsonld";

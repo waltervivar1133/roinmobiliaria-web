@@ -1,4 +1,4 @@
-import PropertiesSection from "@/components/PropertiesSection";
+import PropertiesSection from "@/components/properties/PropertiesSection";
 import type { Property } from "@/types/property";
 
 interface RelatedPropertiesProps {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { getAllProperties } from "@/services/properties/properties.service";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/forms/ContactForm";
 import { absoluteUrl } from "@/lib/site";
 import type { Property } from "@/types/property";
 

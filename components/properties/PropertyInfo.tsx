@@ -1,7 +1,7 @@
-import PropertyDetails from "@/components/PropertyDetails";
-import PropertyDescription from "@/components/PropertyDescription";
-import PropertyCharacteristics from "@/components/PropertyCharacteristics";
-import PropertyContactCard from "@/components/PropertyContactCard";
+import PropertyDetails from "@/components/properties/PropertyDetails";
+import PropertyDescription from "@/components/properties/PropertyDescription";
+import PropertyCharacteristics from "@/components/properties/PropertyCharacteristics";
+import PropertyContactCard from "@/components/properties/PropertyContactCard";
 import type { Property } from "@/types/property";
 
 interface PropertyInfoProps {

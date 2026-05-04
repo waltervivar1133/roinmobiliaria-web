@@ -1,4 +1,4 @@
-import ViewMoreLink from "@/components/ViewMoreLink";
+import ViewMoreLink from "@/components/ui/ViewMoreLink";
 import BlogVerticalCard from "@/components/blog/BlogVerticalCard";
 import type { BlogPost } from "@/types/blog";
 

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect } from "react";
-import { useLayoutNav } from "@/components/LayoutNavContext";
+import { useLayoutNav } from "@/components/layout/LayoutNavContext";
 
 export default function NotFound() {
   const { setShowNav } = useLayoutNav();

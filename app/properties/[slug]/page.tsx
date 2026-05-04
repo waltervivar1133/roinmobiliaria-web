@@ -4,11 +4,11 @@ import {
   getPropertyBySlugCached,
   getRelatedProperties,
 } from "@/services/properties/properties.service";
-import PropertyImageSlider from "@/components/PropertyImageSlider";
-import PropertyInfo from "@/components/PropertyInfo";
-import PropertyMapWrapper from "@/components/PropertyMapWrapper";
-import RelatedProperties from "@/components/RelatedProperties";
-import BackButton from "@/components/BackButton";
+import PropertyImageSlider from "@/components/properties/PropertyImageSlider";
+import PropertyInfo from "@/components/properties/PropertyInfo";
+import PropertyMapWrapper from "@/components/properties/PropertyMapWrapper";
+import RelatedProperties from "@/components/properties/RelatedProperties";
+import BackButton from "@/components/ui/BackButton";
 import JsonLd from "@/components/seo/JsonLd";
 import { preparePropertyImages, hasLocation } from "@/utils/property";
 import { absoluteUrl } from "@/lib/site";

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useSlider } from "@/hooks/useSlider";
-import { SliderArrowButton, SliderDots } from "@/components/slider-controls";
+import { SliderArrowButton, SliderDots } from "@/components/ui/slider-controls";
 
 interface BannerImage {
   sourceUrl: string;

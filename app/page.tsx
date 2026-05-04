@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import RecommendationsSection from "@/components/RecommendationsSection";
-import Slider from "@/components/Slider";
-import MissionVisionSection from "@/components/MissionVisionSection";
-import NewsSection from "@/components/NewsSection";
-import ContactSection from "@/components/ContactSection";
+import RecommendationsSection from "@/components/sections/RecommendationsSection";
+import Slider from "@/components/ui/Slider";
+import MissionVisionSection from "@/components/sections/MissionVisionSection";
+import NewsSection from "@/components/sections/NewsSection";
+import ContactSection from "@/components/sections/ContactSection";
 import { getSiteUrl } from "@/lib/site";
 import { getFeaturedProperties } from "@/services/properties/properties.service";
 import { getPublishedSlides } from "@/services/slider/slider.service";

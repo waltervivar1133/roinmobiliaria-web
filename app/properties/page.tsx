@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { getAllProperties } from "@/services/properties/properties.service";
-import PropertiesSection from "@/components/PropertiesSection";
-import PageHeader from "@/components/PageHeader";
-import EmptyState from "@/components/EmptyState";
+import PropertiesSection from "@/components/properties/PropertiesSection";
+import PageHeader from "@/components/ui/PageHeader";
+import EmptyState from "@/components/ui/EmptyState";
 import { absoluteUrl } from "@/lib/site";
 import type { Property } from "@/types/property";
 

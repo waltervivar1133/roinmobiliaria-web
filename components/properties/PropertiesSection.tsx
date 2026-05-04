@@ -1,5 +1,5 @@
 import PropertyCard from "./PropertyCard";
-import SectionHeader from "./SectionHeader";
+import SectionHeader from "@/components/ui/SectionHeader";
 import type { Property } from "@/types/property";
 
 interface PropertiesSectionProps {

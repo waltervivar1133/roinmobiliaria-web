@@ -1,7 +1,7 @@
 "use client";
 
-import PropertySelect from "@/components/PropertySelect";
-import FormField from "@/components/FormField";
+import PropertySelect from "@/components/properties/PropertySelect";
+import FormField from "@/components/ui/FormField";
 import { useContactForm } from "@/hooks/useContactForm";
 import type { ContactFormProps } from "@/types/contact";
 

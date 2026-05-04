@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { Metadata } from "next";
-import ContactSection from "@/components/ContactSection";
+import ContactSection from "@/components/sections/ContactSection";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
