@@ -62,7 +62,11 @@ export const PRODUCT_FIELDS = gql`
 export const GET_ALL_PROPERTIES = gql`
   ${PRODUCT_FIELDS}
   query GetAllProperties($first: Int = 100, $after: String) {
-    products(first: $first, after: $after, where: { status: "publish" }) {
+    products(
+      first: $first
+      after: $after
+      where: { status: "publish", orderby: { field: DATE, order: DESC } }
+    ) {
       pageInfo {
         hasNextPage
         endCursor
@@ -131,7 +135,10 @@ export const PRODUCT_HOME_FIELDS = gql`
 export const GET_HOME_PROPERTIES = gql`
   ${PRODUCT_HOME_FIELDS}
   query GetHomeProperties($first: Int = 6) {
-    products(first: $first, where: { status: "publish" }) {
+    products(
+      first: $first
+      where: { status: "publish", orderby: { field: DATE, order: DESC } }
+    ) {
       nodes {
         ...ProductHomeFields
       }

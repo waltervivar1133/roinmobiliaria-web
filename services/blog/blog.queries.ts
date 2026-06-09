@@ -42,7 +42,11 @@ export const POST_FIELDS = gql`
 export const GET_ALL_POSTS = gql`
   ${POST_FIELDS}
   query GetAllPosts($first: Int = 10, $after: String) {
-    posts(first: $first, after: $after, where: { status: PUBLISH }) {
+    posts(
+      first: $first
+      after: $after
+      where: { status: PUBLISH, orderby: { field: DATE, order: DESC } }
+    ) {
       pageInfo {
         hasNextPage
         endCursor

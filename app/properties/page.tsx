@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   },
 };
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 async function fetchProperties(): Promise<Property[]> {
   try {
     const data = await getAllProperties(100);
