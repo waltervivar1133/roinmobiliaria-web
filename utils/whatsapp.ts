@@ -1,6 +1,9 @@
 import type { ContactFormData } from "@/types/contact";
 
-const WHATSAPP_NUMBER = "+51997896954";
+export const WHATSAPP_NUMBER = "51997896954";
+
+export const DEFAULT_WHATSAPP_MESSAGE =
+  "Hola! Rossana Osores, me gustaría recibir informacion sobre las propiedades disponibles.";
 
 export function buildWhatsAppMessage(data: ContactFormData): string {
   let message = `Hola, soy ${data.name || "un cliente interesado"}`;

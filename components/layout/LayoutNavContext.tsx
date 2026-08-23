@@ -9,6 +9,7 @@ import {
 } from "react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import WhatsAppFloatingContact from "@/components/contact/WhatsAppFloatingContact";
 
 type LayoutNavContextValue = {
   showNav: boolean;
@@ -35,6 +36,7 @@ export function LayoutNavProvider({ children }: { children: ReactNode }) {
       <main className={showNav ? "min-h-screen pt-[100.34px]" : "min-h-screen"}>
         {children}
       </main>
+      {showNav && <WhatsAppFloatingContact />}
       {showNav && <Footer />}
     </LayoutNavContext.Provider>
   );
