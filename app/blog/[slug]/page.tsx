@@ -9,6 +9,7 @@ import JsonLd from "@/components/seo/JsonLd";
 import { absoluteUrl } from "@/lib/site";
 import { stripHtml } from "@/lib/seo/strip-html";
 import { buildArticleJsonLd } from "@/lib/seo/blog-jsonld";
+import { normalizeBlogContent } from "@/lib/blog-content";
 import type { BlogPost } from "@/types/blog";
 import { notFound } from "next/navigation";
 
@@ -46,7 +47,12 @@ export async function generateMetadata({
         modifiedTime: post.modified,
         authors: [post.author?.node?.name || "Rossana Osores"],
         images: image
-          ? [{ url: image, alt: post.featuredImage?.node?.altText || post.title }]
+          ? [
+              {
+                url: image,
+                alt: post.featuredImage?.node?.altText || post.title,
+              },
+            ]
           : undefined,
       },
       twitter: {
@@ -117,39 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   const category = post.categories?.nodes[0]?.name || "Sin categoría";
 
-  // Función para remover enlaces de las imágenes en el contenido
-  const processContent = (html: string): string => {
-    let processed = html;
-
-    // Caso 1: <a> que contiene <figure> con <img> (bloques de WordPress Gutenberg)
-    // Maneja casos como: <a><figure class="wp-block-image"><img></figure></a>
-    processed = processed.replace(
-      /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<figure[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/figure>)\s*<\/a>/gi,
-      "$1"
-    );
-
-    // Caso 2: <a> que contiene directamente <img> (sin figure)
-    processed = processed.replace(
-      /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<img[^>]*>)\s*<\/a>/gi,
-      "$1"
-    );
-
-    // Caso 3: <a> que contiene <figure> completo (cualquier estructura)
-    processed = processed.replace(
-      /<a[^>]*href=["'][^"']*["'][^>]*>(\s*<figure[^>]*>[\s\S]*?<\/figure>)\s*<\/a>/gi,
-      "$1"
-    );
-
-    // Caso 4: <a> sin href pero que contiene imágenes (por si acaso)
-    processed = processed.replace(
-      /<a[^>]*>(\s*(?:<figure[^>]*>[\s\S]*?<img[^>]*>[\s\S]*?<\/figure>|<img[^>]*>))\s*<\/a>/gi,
-      "$1"
-    );
-
-    return processed;
-  };
-
-  const processedContent = processContent(post.content);
+  const processedContent = normalizeBlogContent(post.content, post.title);
 
   return (
     <div className="bg-white">
@@ -157,7 +131,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
       {/* Header */}
       <div className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 md:py-12">
           <Link
             href="/blog"
             className="inline-flex items-center gap-2 font-medium hover:opacity-80 transition-opacity mb-4 md:mb-6 group text-primary-green"
@@ -181,13 +155,16 @@ export default async function BlogPostPage({ params }: PageProps) {
           <div className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
             {formatDate(post.date)} • {category}
           </div>
+          <h1 className="max-w-3xl text-2xl font-bold leading-tight text-primary-blue md:text-3xl">
+            {post.title}
+          </h1>
         </div>
       </div>
 
       {/* Content */}
-      <article className="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-0">
+      <article className="max-w-4xl mx-auto px-4 py-10 md:px-8 md:py-14">
         <div
-          className="prose prose-sm md:prose-base lg:prose-lg max-w-none  prose-headings:text-primary-blue prose-a:text-primary-green prose-strong:text-primary-blue prose-p:text-gray-700 prose-img:rounded-lg prose-img:w-full [&_a>img]:pointer-events-none [&_a>img]:cursor-default [&_a>figure]:pointer-events-none [&_a>figure]:cursor-default [&_figure>img]:pointer-events-none [&_figure>img]:cursor-default"
+          className="blog-content"
           dangerouslySetInnerHTML={{ __html: processedContent }}
         />
       </article>
